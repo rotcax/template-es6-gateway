@@ -1,0 +1,15 @@
+# Logs
+logs
+*.log
+
+# dotenv environment variables file
+.env
+.env.test
+
+# IDE or editor workspaces
+.idea
+.vscode
+
+# OS folder cache structures
+.DS_Store
+Thumbs.db
