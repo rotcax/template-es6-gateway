@@ -1,17 +1,28 @@
+import { config } from 'dotenv';
 import { GenericController } from '../controllers';
+
+config();
+
+const { AUTH_HOST, FORMS_HOST } = process.env;
 
 const schemas = [
 	{
 		path: '/login',
 		method: 'post',
-		redirect: 'auth/signin',
-		controller: GenericController.send
+		controller: GenericController.send,
+		redirect: {
+			path: `${AUTH_HOST}/signin`,
+			method: 'post'
+		},
 	},
 	{
 		path: '/logout',
 		method: 'post',
-		redirect: 'auth/signout',
-		controller: GenericController.send
+		controller: GenericController.send,
+		redirect: {
+			path: `${AUTH_HOST}/signout`,
+			method: 'post'
+		},
 	}
 ]
 
