@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mongodb:
+    container_name: mocafi_mongodb
+    image: mongo:4.2.8-bionic
+    ports:
+      - '27017:27017'
+
+  mocafi_auth_microservice:
+    container_name: mocafi_auth
+    build: ./mocafi-municipal-api-auth
+    volumes:
+      - ./mocafi-municipal-api-auth:/usr/app
+    restart: always
+    ports:
+      - '3001:3001'
+    depends_on:
+      - mongodb
+
+  mocafi_forms_microservice:
+    container_name: mocafi_forms
+    build: ./mocafi-municipal-api-forms
+    volumes:
+      - ./mocafi-municipal-api-forms:/usr/app
+    restart: always
+    ports:
+      - '3002:3002'
+    depends_on:
+      - mongodb
