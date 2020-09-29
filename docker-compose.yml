@@ -7,6 +7,17 @@ services:
     ports:
       - '27017:27017'
 
+  mocafi_gateway:
+    container_name: mocafi_gateway
+    build: ./mocafi-municipal-api-gateway
+    volumes:
+      - ./mocafi-municipal-api-gateway:/usr/app
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+
   mocafi_auth_microservice:
     container_name: mocafi_auth
     build: ./mocafi-municipal-api-auth
