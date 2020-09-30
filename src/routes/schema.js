@@ -12,7 +12,7 @@ const schemas = [
 		controller: GenericController.send,
 		redirect: {
 			path: `${AUTH_HOST}/signin`,
-			method: 'post'
+			method: 'POST'
 		},
 	},
 	{
@@ -21,7 +21,7 @@ const schemas = [
 		controller: GenericController.send,
 		redirect: {
 			path: `${AUTH_HOST}/signout`,
-			method: 'post'
+			method: 'POST'
 		},
 	}
 ]
