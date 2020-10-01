@@ -3,25 +3,16 @@ import { GenericController } from '../controllers';
 
 config();
 
-const { AUTH_HOST, FORMS_HOST } = process.env;
+const { MICROSERVICE_HOST } = process.env;
 
 const schemas = [
 	{
-		path: '/login',
-		method: 'post',
+		path: '/test',
+		method: 'get',
 		controller: GenericController.send,
 		redirect: {
-			path: `${AUTH_HOST}/signin`,
-			method: 'POST'
-		},
-	},
-	{
-		path: '/logout',
-		method: 'post',
-		controller: GenericController.send,
-		redirect: {
-			path: `${AUTH_HOST}/signout`,
-			method: 'POST'
+			path: `${MICROSERVICE_HOST}/`,
+			method: 'GET'
 		},
 	}
 ]
